@@ -108,6 +108,58 @@
                 // 부모 요소에서 선택한 자식 요소를 제거
             }
         </script>
+
+        <h2>주소 검색</h2>
+        <div>
+            <select id='sido'>
+                <option>-시/도-</option>
+                <option>서울특별시</option>
+                <option>인천광역시</option>
+                <option>경기도</option>
+                <option>부산광역시</option>
+            </select>
+
+            <select id='gugun'>
+                <option>-시/군/구-</option>
+            </select>
+
+            <select id='dong'>
+                <option>-읍/면/동-</option>
+            </select>
+        </div>
+
+        <p id="addr"></p>
+        <script>
+            // 전국 시도 중 하나를 선택하면, 선택한 시도에 대한 시군구가 다음 select에 목록으로 출력되고, 시군구 중 하나를 선택하면, 선택한 시군구에 대한 읍면동이 다음 select에 목록으로 출력되도록 함
+
+            // 포인트1 : 이벤트 발생시 option 태그가 동적으로 생성
+            // 포인트2 : select에서 발생 가능한 이벤트는 change임
+            // 포인트3 : select에서 선택한 항목의 정보는 selectedIndex속성을 이용
+            // 포인트4 : option태그에 텍스트를 추가하려면createTextNode를 이용
+
+            let sd = ['', '서울특별시','경기도','인천광역시','부산광역시'];
+
+            let sgg = [ ['- 시/군/구 -'],
+                        ['- 시/군/구 -','강남구','서초구','송파구','종로구'],
+                        ['- 시/군/구 -','광명시','구리시','성남시','수원시','고양시'],
+                        ['- 시/군/구 -','연수구','남동구','서구'],
+                        ['- 시/군/구 -','진구','동래구','해운대구','기장군'] ];
+
+            // 변수 선언
+            let sido = document.querySelector('#sido');
+            let gugun = document.querySelector('#gugun');
+            let dong = document.querySelector('#dong');
+
+            // 첫번째 select에 change 이벤트 등록
+            sido.addEventListener('change', makegu);
+
+            function makegu() {
+                //alert(sido.selectedIndex);
+                //for of 를 이용해서 배열요소 출력
+                //createTextNode를 이용해서 텍스트 출력
+            }
+
+        </script>
     </body>
 </html>
 <!--
